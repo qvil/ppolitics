@@ -4,6 +4,7 @@ Participate in politics of Everybody.
 
 # TODO
 
+- [ ] Theming
 - [ ] Serverless setting? (AWS Lambda, AWS AppSync)
 
 # Install

@@ -1,10 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import theme from "styled-theming";
+
+const buttonBackgroundColor = theme("mode", {
+  light: "#fcc2d7",
+  dark: "#c2255c"
+});
 
 const StyledButton = styled.button`
   padding: 1rem;
   font-size: 1rem;
-  background: pink;
+  background: ${buttonBackgroundColor};
   color: white;
   border-radius: 0.2rem;
   outline: none;

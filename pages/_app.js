@@ -1,5 +1,6 @@
 import React from "react";
 import App, { Container } from "next/app";
+import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/GlobalStyle";
 
 export default class MyApp extends App {
@@ -15,10 +16,12 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
-        <Component {...pageProps} />
-        <GlobalStyle />
-      </Container>
+      <ThemeProvider theme={{ mode: "dark" }}>
+        <Container>
+          <Component {...pageProps} />
+          <GlobalStyle />
+        </Container>
+      </ThemeProvider>
     );
   }
 }

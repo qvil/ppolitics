@@ -2,7 +2,9 @@ import React from "react";
 import App, { Container } from "next/app";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/GlobalStyle";
-import ThemeContext from "../store/ThemeContext";
+import ThemeContext, {
+  ThemeProvider as MyThemeProvider
+} from "../store/ThemeContext";
 
 export default class MyApp extends App {
   static contextType = ThemeContext;
@@ -19,14 +21,14 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <ThemeContext.Provider>
+      <MyThemeProvider>
         <ThemeProvider theme={{ mode: this.context }}>
           <Container>
             <Component {...pageProps} />
             <GlobalStyle />
           </Container>
         </ThemeProvider>
-      </ThemeContext.Provider>
+      </MyThemeProvider>
     );
   }
 }

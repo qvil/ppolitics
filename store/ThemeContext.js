@@ -9,7 +9,7 @@ class ThemeProvider extends React.Component {
   state = { theme: THEME_DARK };
 
   actions = {
-    handleToggleTheme: theme => {
+    handleToggleTheme: () => {
       this.setState(({ theme }) => ({
         theme: theme === THEME_DARK ? THEME_LIGHT : THEME_DARK
       }));

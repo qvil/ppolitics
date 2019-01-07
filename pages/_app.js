@@ -3,7 +3,8 @@ import App, { Container } from "next/app";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/GlobalStyle";
 import ThemeContext, {
-  ThemeProvider as MyThemeProvider
+  ThemeProvider as MyThemeProvider,
+  ThemeConsumer
 } from "../store/ThemeContext";
 
 export default class MyApp extends App {
@@ -22,12 +23,21 @@ export default class MyApp extends App {
 
     return (
       <MyThemeProvider>
-        <ThemeProvider theme={{ mode: this.context }}>
-          <Container>
-            <Component {...pageProps} />
-            <GlobalStyle />
-          </Container>
-        </ThemeProvider>
+        <ThemeConsumer>
+          {value => {
+            const { theme } = value.state;
+
+            return (
+              // <ThemeProvider theme={{ mode: this.context }}>
+              <ThemeProvider theme={{ theme }}>
+                <Container>
+                  <Component {...pageProps} />
+                  <GlobalStyle />
+                </Container>
+              </ThemeProvider>
+            );
+          }}
+        </ThemeConsumer>
       </MyThemeProvider>
     );
   }

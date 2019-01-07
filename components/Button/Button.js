@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import theme from "styled-theming";
 
-const buttonBackgroundColor = theme("mode", {
+const buttonBackgroundColor = theme("theme", {
   light: "#fcc2d7",
   dark: "#c2255c"
 });
